@@ -393,4 +393,9 @@ html.light-mode .robot-hero {
         padding-left: 1rem;
         padding-right: 1rem;
     }
+
+    /* Adjust hero font size on mobile */
+    #home h1 {
+        font-size: 48px; /* Smaller font for mobile */
+    }
 }
