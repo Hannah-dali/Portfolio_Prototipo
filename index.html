@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>HDB // Hannah Dalila Bojanovich</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400..900;1,400..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/light-mode.css" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#72f5ff",
+                        "secondary": "#fface8",
+                        "tertiary": "#e9dcff",
+                        "background": "#0A0B1E",
+                        "surface": "#0d1515",
+                        "on-background": "#dce4e4",
+                        "on-surface": "#dce4e4",
+                        "on-surface-variant": "#b9cacb",
+                        "outline-variant": "#3b494a",
+                        "surface-glass": "rgba(46, 54, 55, 0.3)",
+                        "surface-container-lowest": "#080f10",
+                        "surface-container-low": "#161d1d",
+                        "surface-container-high": "#242b2c",
+                        "surface-container-highest": "#2f3637",
+                        "glow-cyan": "rgba(0, 219, 231, 0.8)",
+                        "glow-magenta": "rgba(255, 172, 232, 0.4)",
+                        "on-primary": "#00363a",
+                        "on-secondary": "#54174a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "margin-desktop": "80px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Bodoni Moda"],
+                        "headline-lg": ["Bodoni Moda"],
+                        "headline-md": ["Bodoni Moda"],
+                        "headline-sm": ["Bodoni Moda"],
+                        "body-lg": ["JetBrains Mono"],
+                        "body-md": ["JetBrains Mono"],
+                        "label-md": ["JetBrains Mono"],
+                        "code-sm": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "code-sm": ["13px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body
+    class="bg-background text-on-background font-body-md overflow-x-hidden selection:bg-primary/30 selection:text-primary custom-scrollbar">
+    <!-- Atmospheric Background Elements -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="floating-blob bg-primary w-[600px] h-[600px] top-[-100px] left-[-100px] animate-pulse"></div>
+        <div class="floating-blob bg-secondary w-[500px] h-[500px] bottom-[-100px] right-[-100px] animate-bounce"
+            style="animation-duration: 10s;"></div>
+    </div>
+    <!-- Navigation -->
+    <header class="bg-surface-glass backdrop-blur-[20px] fixed top-0 w-full z-50 border-b border-outline-variant/30">
+        <div class="flex justify-between items-center h-20 px-margin-desktop max-w-container-max mx-auto">
+            <a class="transition-transform hover:scale-110 inline-flex items-center"
+                href="#home" aria-label="Inicio">
+                <img src="img/logo.png" alt="Logo HDB" class="h-14 w-auto" />
+            </a>
+            <nav class="hidden md:flex gap-10">
+                <a class="font-label-md text-label-md lowercase tracking-widest text-on-surface-variant hover:text-primary transition-all duration-300 relative group"
+                    href="#home">
+                    home
+                    <span class="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all group-hover:w-full"></span>
+                </a>
+                <a class="font-label-md text-label-md lowercase tracking-widest text-on-surface-variant hover:text-primary transition-all duration-300 relative group"
+                    href="#tech">
+                    stack
+                    <span class="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all group-hover:w-full"></span>
+                </a>
+                <a class="font-label-md text-label-md lowercase tracking-widest text-on-surface-variant hover:text-primary transition-all duration-300 relative group"
+                    href="#proyectos">
+                    proyectos
+                    <span class="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all group-hover:w-full"></span>
+                </a>
+                <a class="font-label-md text-label-md lowercase tracking-widest text-on-surface-variant hover:text-primary transition-all duration-300 relative group"
+                    href="#estudio">
+                    estudio
+                    <span class="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all group-hover:w-full"></span>
+                </a>
+                <a class="font-label-md text-label-md lowercase tracking-widest text-on-surface-variant hover:text-primary transition-all duration-300 relative group"
+                    href="#contacto">
+                    contacto
+                    <span class="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all group-hover:w-full"></span>
+                </a>
+            </nav>
+            <div class="flex items-center gap-6">
+                <button id="theme-toggle"
+                    class="p-3 bg-surface-glass rounded-lg border border-outline-variant/30 text-on-surface-variant hover:text-primary hover:border-primary/40 transition-all"
+                    aria-label="Cambiar modo claro/oscuro" title="Cambiar modo claro/oscuro" type="button">
+                    <span id="theme-toggle-icon" class="material-symbols-outlined">light_mode</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="relative z-10">
+        <!-- Section: Hero -->
+        <section class="min-h-screen pt-40 pb-20 max-w-container-max mx-auto px-margin-desktop flex flex-col justify-center"
+            id="home">
+            <div class="reveal active">
+                <div class="font-code-sm text-primary mb-4 tracking-tighter opacity-70">[Analista Universitaria en Sistemas · Estudiante de 4to año · UX/UI & Full Stack]</div>
+                <h1 class="font-display-lg text-display-lg leading-tight mb-8">
+                    <span class="block glitch-text stagger-1 transition-all">Hannah /</span>
+                    <span class="block italic text-primary glitch-text stagger-2 transition-all">Dalila /</span>
+                    <span class="block glitch-text stagger-3 transition-all">Bojanovich</span>
+                </h1>
+                <div class="max-w-2xl mb-12 reveal stagger-2 active">
+                    <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                        Diseñadora UX/UI y desarrolladora Full Stack con un perfil híbrido entre tecnología, diseño visual y branding digital. Desarrollo experiencias inmersivas, sistemas responsivos y plataformas interactivas con foco en usuario, arquitectura de información y soluciones reales de negocio.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-6 mb-20 reveal stagger-3 active">
+                    <a class="angular-clip bg-primary text-on-primary px-10 py-5 font-label-md text-label-md uppercase tracking-wider hover:bg-secondary hover:text-on-secondary transition-all duration-300 hover:scale-105 flex items-center neon-pulse-cyan"
+                        href="#proyectos">
+                        Explorar Proyectos
+                    </a>
+                    <a
+                        href="cv/CV%20%20(2).pdf"
+                        download
+                        class="angular-clip border-2 border-secondary text-secondary px-10 py-5 font-label-md text-label-md uppercase tracking-wider hover:bg-secondary/10 transition-all duration-300 hover:scale-105 relative overflow-hidden group"
+                        aria-label="Descargar CV">
+                        <span class="shimmer-btn absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                        <span class="relative z-10">Descargar CV</span>
+                    </a>
+                </div>
+                <!-- Stats Row -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-gutter w-full max-w-4xl reveal stagger-3 active">
+                    <div
+                        class="bg-surface-glass backdrop-blur-xl p-8 neon-border-cyan group hover:scale-[1.05] transition-all hover:bg-surface-container-low neon-pulse-cyan">
+                        <span class="font-code-sm text-code-sm text-primary/60 block mb-1">#MODULE-COUNT</span>
+                        <h3 class="font-headline-md text-headline-md text-primary">+ 5 Proyectos Reales</h3>
+                    </div>
+                    <div
+                        class="bg-surface-glass backdrop-blur-xl p-8 neon-border-magenta group hover:scale-[1.05] transition-all hover:bg-surface-container-low">
+                        <span class="font-code-sm text-code-sm text-secondary/60 block mb-1">#RUNTIME</span>
+                        <h3 class="font-headline-md text-headline-md text-secondary">Formación Activa</h3>
+                    </div>
+                    <div
+                        class="bg-surface-glass backdrop-blur-xl p-8 neon-border-cyan group hover:scale-[1.05] transition-all hover:bg-surface-container-low neon-pulse-cyan">
+                        <span class="font-code-sm text-code-sm text-primary/60 block mb-1">#DRIVE</span>
+                        <h3 class="font-headline-md text-headline-md text-primary">UX + Software</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Project modals templates (hidden) -->
+        <div id="project-templates" style="display:none;">
+            <div id="tmpl-01">
+                <div class="modal-preview">
+                    <img src="img/Previeweterea.png" alt="ÉTERIA preview" />
+                </div>
+                <h3 class="font-headline-sm text-2xl text-on-background mt-8 mb-4">ÉTERIA – Galería de Arte Online</h3>
+                <div class="modal-section">
+                    <h4 class="font-label-md text-primary mb-2">Descripción</h4>
+                    <p class="text-on-surface-variant mb-4">Plataforma artística inmersiva con UX/UI, arquitectura de información, galería 3D interactiva, panel administrativo, mensajería y notificaciones. Implementé rutas de contenido, gestión de usuarios y un sistema de notificaciones para artistas y administradores.</p>
+                </div>
+                <div class="modal-section">
+                    <h4 class="font-label-md text-primary mb-2">Estado</h4>
+                    <p class="text-on-surface-variant mb-4">Finalizado (demo principal publicada).</p>
+                </div>
+                <div class="modal-section">
+                    <h4 class="font-label-md text-primary mb-2">Enlace</h4>
+                    <a href="https://eteria-web.netlify.app/" target="_blank" rel="noopener noreferrer" class="text-secondary underline underline-offset-4">Ver demo (parte principal)</a>
+                </div>
+                <div class="modal-section">
+                    <h4 class="font-label-md text-primary mb-2">Stack completo</h4>
+                    <div class="tag-list">
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">PHP</span>
+                        <span class="tag">JSON</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">XAMPP</span>
+                        <span class="tag">GitHub</span>
+                    </div>
+                </div>
+            </div>
+            <div id="tmpl-02">
+                <div class="modal-preview">
+                    <img src="img/Preview_cosmetologia.png" alt="Bloom.distribuciones preview" />
+                </div>
+                <h3 class="font-headline-sm text-2xl text-on-background mt-8 mb-4">Plataforma de Cosmetología Integral &amp; Bienestar — Bloom.distribuciones</h3>
+                <div class="modal-section">
+                    <h4 class="font-label-md text-primary mb-2">Descripción</h4>
+                    <p class="text-on-surface-variant mb-4">Desarrollo de una plataforma de cosmetología y bienestar orientada a la conversión, integrando UX/UI, arquitectura interactiva y herramientas dinámicas para reservas, promociones y personalización de servicios. Complementado con gestión digital, creación de contenido, atención al cliente, ventas online y organización administrativa.</p>
+                </div>
+                <div class="modal-section">
+                    <h4 class="font-label-md text-primary mb-2">Estado</h4>
+                    <p class="text-on-surface-variant mb-4">En proceso de desarrollo.</p>
+                </div>
+                <div class="modal-section">
+                    <h4 class="font-label-md text-primary mb-2">Enlace</h4>
+                    <p class="text-on-surface-variant mb-4">Demo privada / en construcción.</p>
+                </div>
+                <div class="modal-section">
+                    <h4 class="font-label-md text-primary mb-2">Stack & features</h4>
+                    <div class="tag-list">
+                        <span class="tag">UX/UI</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Vite</span>
+                        <span class="tag">Supabase</span>
+                        <span class="tag">PLpgSQL</span>
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">Conversion Funnel</span>
+                        <span class="tag">Quiz Interactivo</span>
+                        <span class="tag">CTA Strategy</span>
+                    </div>
+                </div>
+            </div>
+            <div id="tmpl-03">
+                <div class="modal-split">
+                    <div class="modal-details">
+                        <h3 class="font-headline-sm text-2xl text-on-background mb-4">Yvy Porã — Plataforma UX para Huertas Urbanas Inteligentes</h3>
+                        <div class="modal-section">
+                            <h4 class="font-label-md text-primary mb-2">Descripción</h4>
+                            <p class="text-on-surface-variant mb-4">Investigación y diseño de una aplicación mobile enfocada en acompañar a personas sin experiencia en la creación y mantenimiento de huertas urbanas. El proyecto integró investigación UX, benchmarking, arquitectura de información, wireframing, heurísticas de Nielsen, diseño UI y prototipado interactivo centrado en la experiencia del usuario y el contexto local de Misiones.</p>
+                        </div>
+                        <div class="modal-section">
+                            <h4 class="font-label-md text-primary mb-2">Estado</h4>
+                            <p class="text-on-surface-variant mb-4">Prototipo funcional finalizado, desarrollo de app mobile en proceso.</p>
+                        </div>
+                        <div class="modal-section mb-3">
+                            <h4 class="font-label-md text-primary mb-2">Enlace</h4>
+                            <a href="https://www.figma.com/proto/vO9Gx1wrseEJdLHxEi8l2p/yvy-pora?node-id=86-11&t=v4kOIbhD8YpZYISU-1&starting-point-node-id=86%3A5" target="_blank" rel="noopener noreferrer" class="text-secondary underline underline-offset-4">Ver prototipo funcional</a>
+                        </div>
+                        <div class="modal-section">
+                            <h4 class="font-label-md text-primary mb-2">Métodos y stack</h4>
+                            <div class="tag-list">
+                                <span class="tag">UX Research</span>
+                                <span class="tag">Wireframing</span>
+                                <span class="tag">User Flow</span>
+                                <span class="tag">Heurísticas de Nielsen</span>
+                                <span class="tag">Design System</span>
+                                <span class="tag">Gamificación</span>
+                                <span class="tag">Prototipado</span>
+                                <span class="tag">Design Thinking</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-preview">
+                        <img src="img/PreviewYvypora.png" alt="Yvy Porã preview" />
+                    </div>
+                </div>
+            </div>
+            <div id="tmpl-11">
+                <div class="modal-preview">
+                    <img src="img/certificaciones/Phytoncienciadedatos.png" alt="Python para Ciencia de Datos" />
+                </div>
+                <h3 class="font-headline-sm text-2xl text-on-background mt-8 mb-4">Python para Ciencia de Datos e Inteligencia Artificial — Silicon Misiones</h3>
+                <div class="modal-section">
+                    <h4 class="font-label-md text-primary mb-2">Fecha</h4>
+                    <p class="text-on-surface-variant mb-4">03/10/2024</p>
+                </div>
+            </div>
+            <div id="tmpl-12">
+                <div class="modal-preview">
+                    <img src="img/certificaciones/Ciberseguridad.png" alt="Ciberseguridad" />
+                </div>
+                <h3 class="font-headline-sm text-2xl text-on-background mt-8 mb-4">Ciberseguridad: Amenazas, Consejos y Buenas Prácticas — Charla</h3>
+                <div class="modal-section">
+                    <h4 class="font-label-md text-primary mb-2">Fecha</h4>
+                    <p class="text-on-surface-variant mb-4">30/09/2024</p>
+                </div>
+            </div>
+            <div id="tmpl-13">
+                <div class="modal-preview">
+                    <img src="img/certificaciones/Phytoncienciadedatos.png" alt="Introducción a la Programación" />
+                </div>
+                <h3 class="font-headline-sm text-2xl text-on-background mt-8 mb-4">Introducción a la Programación — Silicon Misiones</h3>
+                <div class="modal-section">
+                    <h4 class="font-label-md text-primary mb-2">Fecha</h4>
+                    <p class="text-on-surface-variant mb-4">21/03/2024</p>
+                </div>
+            </div>
+            <div id="tmpl-14">
+                <div class="modal-preview">
+                    <img src="img/certificaciones/InglesIT.png" alt="Inglés IT" />
+                </div>
+                <h3 class="font-headline-sm text-2xl text-on-background mt-8 mb-4">Inglés IT — Silicon Misiones</h3>
+                <div class="modal-section">
+                    <h4 class="font-label-md text-primary mb-2">Fecha</h4>
+                    <p class="text-on-surface-variant mb-4">28/03/2024</p>
+                </div>
+            </div>
+            <div id="tmpl-15">
+                <div class="modal-preview">
+                    <img src="img/certificaciones/Ingles.jpeg" alt="Inglés - Brit School" />
+                </div>
+                <h3 class="font-headline-sm text-2xl text-on-background mt-8 mb-4">Inglés – Nivel Intermedio — Brit School</h3>
+                <div class="modal-section">
+                    <h4 class="font-label-md text-primary mb-2">Fecha</h4>
+                    <p class="text-on-surface-variant mb-4">14/12/2020</p>
+                </div>
+            </div>
+            <div id="tmpl-16">
+                <div class="modal-preview">
+                    <img src="img/certificaciones/CommunityManager.png" alt="Community Manager" />
+                </div>
+                <h3 class="font-headline-sm text-2xl text-on-background mt-8 mb-4">Community Manager — Silicon Misiones</h3>
+                <div class="modal-section">
+                    <h4 class="font-label-md text-primary mb-2">Fecha</h4>
+                    <p class="text-on-surface-variant mb-4">01/04/2024</p>
+                </div>
+            </div>
+            <div id="tmpl-17">
+                <div class="modal-preview">
+                    <img src="img/certificaciones/Cosmetologa.png" alt="Curso de Cosmetología" />
+                </div>
+                <h3 class="font-headline-sm text-2xl text-on-background mt-8 mb-4">Curso de Cosmetología — Escuela Marichu Larumbe</h3>
+                <div class="modal-section">
+                    <h4 class="font-label-md text-primary mb-2">Fecha</h4>
+                    <p class="text-on-surface-variant mb-4">06/04/2022</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal overlay -->
+        <div id="project-modal" class="hidden fixed inset-0 z-50 items-center justify-center px-6 py-12" aria-hidden="true">
+            <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" data-modal-close></div>
+            <div class="relative max-w-3xl w-full mx-auto">
+                <div class="bg-surface-glass neon-border-magenta p-8 rounded-lg shadow-xl overflow-hidden">
+                    <button id="modal-close" class="absolute top-4 right-4 text-secondary text-2xl">✕</button>
+                    <div id="project-modal-content" class="text-on-surface-variant max-h-[70vh] overflow-y-auto custom-scrollbar pr-4 -mr-4"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Section: Tech Stack -->
+        <section class="py-32 bg-surface-container-lowest/50" id="tech">
+            <div class="max-w-container-max mx-auto px-margin-desktop">
+                <div class="mb-16 reveal">
+                    <h2 class="font-headline-lg text-headline-lg mt-2">Tech Stack </h2>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+                    <div
+                        class="bg-surface-glass p-8 neon-border-cyan angular-clip group hover:neon-border-magenta transition-all reveal stagger-1">
+                        <h4 class="font-label-md text-label-md text-on-surface uppercase mb-1">Python</h4>
+                    </div>
+                    <div
+                        class="bg-surface-glass p-8 neon-border-cyan angular-clip group hover:neon-border-magenta transition-all reveal stagger-2">
+                        <h4 class="font-label-md text-label-md text-on-surface uppercase mb-1">JavaScript</h4>
+                    </div>
+                    <div
+                        class="bg-surface-glass p-8 neon-border-cyan angular-clip group hover:neon-border-magenta transition-all reveal stagger-3">
+                        <h4 class="font-label-md text-label-md text-on-surface uppercase mb-1">PHP</h4>
+                    </div>
+                    <div
+                        class="bg-surface-glass p-8 neon-border-cyan angular-clip group hover:neon-border-magenta transition-all reveal stagger-1">
+                        <h4 class="font-label-md text-label-md text-on-surface uppercase mb-1">HTML5</h4>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter mt-gutter">
+                    <div
+                        class="bg-surface-glass p-8 neon-border-cyan angular-clip group hover:neon-border-magenta transition-all reveal stagger-2">
+                        <h4 class="font-label-md text-label-md text-on-surface uppercase mb-1">CSS3</h4>
+                    </div>
+                    <div
+                        class="bg-surface-glass p-8 neon-border-cyan angular-clip group hover:neon-border-magenta transition-all reveal stagger-3">
+                        <h4 class="font-label-md text-label-md text-on-surface uppercase mb-1">POO</h4>
+                    </div>
+                    <div
+                        class="bg-surface-glass p-8 neon-border-cyan angular-clip group hover:neon-border-magenta transition-all reveal stagger-1">
+                        <h4 class="font-label-md text-label-md text-on-surface uppercase mb-1">Patrones de Diseño</h4>
+                    </div>
+                    <div
+                        class="bg-surface-glass p-8 neon-border-cyan angular-clip group hover:neon-border-magenta transition-all reveal stagger-2">
+                        <h4 class="font-label-md text-label-md text-on-surface uppercase mb-1">MySQL</h4>
+                    </div>
+                </div>
+                 <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter mt-gutter">
+                    <div
+                        class="bg-surface-glass p-8 neon-border-cyan angular-clip group hover:neon-border-magenta transition-all reveal stagger-3">
+                        <h4 class="font-label-md text-label-md text-on-surface uppercase mb-1">Git / GitHub</h4>
+                    </div>
+                    <div
+                        class="bg-surface-glass p-8 neon-border-cyan angular-clip group hover:neon-border-magenta transition-all reveal stagger-1">
+                        <h4 class="font-label-md text-label-md text-on-surface uppercase mb-1">Microsoft Excel</h4>
+                    </div>
+                    <div
+                        class="bg-surface-glass p-8 neon-border-cyan angular-clip group hover:neon-border-magenta transition-all reveal stagger-2">
+                        <h4 class="font-label-md text-label-md text-on-surface uppercase mb-1">Responsive Design</h4>
+                    </div>
+                     <div
+                        class="bg-surface-glass p-8 neon-border-cyan angular-clip group hover:neon-border-magenta transition-all reveal stagger-3">
+                        <h4 class="font-label-md text-label-md text-on-surface uppercase mb-1">UX / Wireframing</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section: Proyectos -->
+        <section class="min-h-screen bg-background relative overflow-hidden" id="proyectos">
+            <div class="flex flex-col lg:flex-row min-h-screen">
+                <!-- LEFT COLUMN: Robotic Visual -->
+                <div class="lg:w-3/5 relative h-[60vh] lg:h-auto overflow-hidden">
+                        <div class="absolute inset-0 w-full h-full bg-background"><img alt="Neural Interface Core"
+                            id="hero-robot-img"
+                            class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none hero-visual-float robot-hero"
+                            src="img/robotoscuro.png" />
+                    </div>
+                    <div class="absolute inset-0 z-20 flex items-start justify-center pt-[15%] pointer-events-none">
+                        <div class="flex gap-4 md:gap-12 px-4 w-full justify-center">
+                            <!-- Card 1 (Left, Magenta) -->
+                            <div class="project-card animate-float group pointer-events-auto" id="project-card-01" data-project="01" style="animation-delay: 0s;">
+                                <div class="relative w-28 md:w-56 aspect-[3/4] bg-surface-glass backdrop-blur-[15px] border border-secondary/50 rounded-lg p-3 md:p-4 transition-all hover:border-secondary hover:shadow-[0_0_20px_rgba(255,172,232,0.3)] flex flex-col gap-5 md:gap-6">
+                                    <div class="w-full flex-[0_0_58%] overflow-hidden rounded-md pointer-events-none">
+                                        <img alt="Preview ÉTERIA" class="w-full h-full object-cover object-center opacity-90 group-hover:scale-105 transition-transform duration-300" src="img/Previeweterea.png" />
+                                    </div>
+                                    <span class="absolute top-2 right-2 font-code-sm text-code-sm text-secondary/50">#PRJ-01</span>
+                                    <div class="flex flex-col justify-end flex-1 min-h-0">
+                                        <h3 class="font-headline-sm text-[16px] md:text-headline-sm text-secondary mb-2">ÉTERIA – Galería de Arte Online</h3>
+                                        <div class="flex flex-wrap gap-1">
+                                            <span class="px-1.5 py-0.5 border border-secondary/30 rounded font-code-sm text-[10px] md:text-code-sm uppercase">HTML5</span>
+                                            <span class="px-1.5 py-0.5 border border-secondary/30 rounded font-code-sm text-[10px] md:text-code-sm uppercase">CSS3</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 2 (Center, Cyan) -->
+                            <div class="project-card animate-float group pointer-events-auto" id="project-card-02" data-project="02" style="animation-delay: -2s;">
+                                <div class="relative w-32 md:w-64 aspect-[3/4] bg-surface-glass backdrop-blur-[15px] border border-primary/50 rounded-lg p-3 md:p-4 transition-all hover:border-primary hover:shadow-[0_0_20px_rgba(114,245,255,0.3)] mt-[-20px] flex flex-col gap-5 md:gap-6">
+                                    <div class="w-full flex-[0_0_58%] overflow-hidden rounded-md pointer-events-none">
+                                        <img alt="Preview Bloom.distribuciones" class="w-full h-full object-cover object-center opacity-90 group-hover:scale-105 transition-transform duration-300" src="img/Preview_cosmetologia.png" />
+                                    </div>
+                                    <span class="absolute top-2 right-2 font-code-sm text-code-sm text-primary/50">#PRJ-02</span>
+                                    <div class="flex flex-col justify-end flex-1 min-h-0">
+                                        <h3 class="font-headline-sm text-[18px] md:text-headline-sm text-primary mb-2">Plataforma de Cosmetología Integral &amp; Bienestar </h3>
+                                        <div class="flex flex-wrap gap-1">
+                                            <span class="px-1.5 py-0.5 border border-primary/30 rounded font-code-sm text-[10px] md:text-code-sm uppercase">UX/UI</span>
+                                            <span class="px-1.5 py-0.5 border border-primary/30 rounded font-code-sm text-[10px] md:text-code-sm uppercase">Vite</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card 3 (Right, Purple) -->
+                            <div class="project-card animate-float group pointer-events-auto" id="project-card-03" data-project="03" style="animation-delay: -4s;">
+                                <div class="relative w-28 md:w-56 aspect-[3/4] bg-surface-glass backdrop-blur-[15px] border border-tertiary/50 rounded-lg p-3 md:p-4 transition-all hover:border-tertiary hover:shadow-[0_0_20px_rgba(208,187,255,0.3)] flex flex-col gap-5 md:gap-6">
+                                    <div class="w-full flex-[0_0_58%] overflow-hidden rounded-md pointer-events-none">
+                                        <img alt="Preview Yvy Porã" class="w-full h-full object-cover object-center opacity-90 group-hover:scale-105 transition-transform duration-300" src="img/PreviewYvypora.png" />
+                                    </div>
+                                    <span class="absolute top-2 right-2 font-code-sm text-code-sm text-tertiary/50">#PRJ-03</span>
+                                    <div class="flex flex-col justify-end flex-1 min-h-0">
+                                        <h3 class="font-headline-sm text-[16px] md:text-headline-sm text-tertiary mb-2">Yvy Porã — Plataforma UX para Huertas Urbanas Inteligentes</h3>
+                                        <div class="flex flex-wrap gap-1">
+                                            <span class="px-1.5 py-0.5 border border-tertiary/30 rounded font-code-sm text-[10px] md:text-code-sm uppercase">UX Research</span>
+                                            <span class="px-1.5 py-0.5 border border-tertiary/30 rounded font-code-sm text-[10px] md:text-code-sm uppercase">Wireframing</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- RIGHT COLUMN: Interaction Panel -->
+                <div
+                    class="lg:w-2/5 bg-surface-container-lowest border-l border-outline-variant/20 p-margin-mobile md:p-margin-desktop flex flex-col justify-center">
+                    <div class="max-w-md mx-auto w-full">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-1.5 h-1.5 bg-[#4ade80] rounded-full animate-blink-green"></span>
+                            <span
+                                class="font-label-md text-[0.65rem] tracking-[3px] text-primary uppercase">DEPLOYMENT_STATUS</span>
+                        </div>
+                        <h2 class="font-headline-lg text-[3.5rem] font-bold text-on-background mb-2 leading-tight">
+                            PROYECTOS</h2>
+                        <p class="font-body-md text-[0.75rem] text-on-background/40 mb-12 uppercase tracking-wider">//
+                            portfolio real / casos de estudio</p>
+                        <!-- Project List -->
+                        <div class="space-y-4 mb-16">
+                            <div
+                                class="group cursor-pointer p-6 border-l-2 border-primary/20 hover:border-primary hover:bg-primary/5 transition-all duration-300"
+                                data-project="01">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <span class="block font-code-sm text-[0.7rem] text-on-background/40 mb-1">//
+                                            01</span>
+                                        <h3 class="font-headline-sm text-xl text-on-background mb-2">ÉTERIA – Galería de Arte Online</h3>
+                                        <p class="font-body-sm text-on-surface-variant">Galería de arte online con experiencia 3D e panel administrativo.</p>
+                                        <p class="font-code-sm text-[0.65rem] text-secondary/70 uppercase tracking-widest mt-2">Estado: Finalizado</p>
+                                        <p class="font-code-sm text-[0.65rem] text-primary/60 uppercase tracking-widest mt-2">HTML5 · CSS3 · JavaScript · PHP · MySQL</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="group cursor-pointer p-6 border-l-2 border-primary/20 hover:border-primary hover:bg-primary/5 transition-all duration-300"
+                                data-project="02">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <span class="block font-code-sm text-[0.7rem] text-on-background/40 mb-1">//
+                                            02</span>
+                                        <h3 class="font-headline-sm text-xl text-on-background mb-2">Plataforma de Cosmetología Integral &amp; Bienestar — Bloom.distribuciones</h3>
+                                        <p class="font-body-sm text-on-surface-variant">Plataforma de cosmetología orientada a conversión, reservas y ventas online.</p>
+                                        <p class="font-code-sm text-[0.65rem] text-secondary/70 uppercase tracking-widest mt-2">Estado: En proceso</p>
+                                        <p class="font-code-sm text-[0.65rem] text-primary/60 uppercase tracking-widest mt-2">UX/UI · Vite · Supabase · JavaScript</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="group cursor-pointer p-6 border-l-2 border-primary/20 hover:border-primary hover:bg-primary/5 transition-all duration-300"
+                                data-project="03">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <span class="block font-code-sm text-[0.7rem] text-on-background/40 mb-1">//
+                                            03</span>
+                                        <h3 class="font-headline-sm text-xl text-on-background mb-2">Yvy Porã — Plataforma UX para Huertas Urbanas Inteligentes</h3>
+                                        <p class="font-body-sm text-on-surface-variant">Aplicación UX para huertas urbanas: investigación, prototipado y diseño centrado en usuarios.</p>
+                                        <p class="font-code-sm text-[0.65rem] text-secondary/70 uppercase tracking-widest mt-2">Estado: Prototipo funcional / App mobile en proceso</p>
+                                        <p class="font-code-sm text-[0.65rem] text-primary/60 uppercase tracking-widest mt-2">UX Research · Wireframing · Prototipado</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex gap-6 mb-16">
+                            <button
+                                class="flex-1 angular-clip border border-secondary text-secondary font-label-md text-[0.75rem] py-4 tracking-[2px] uppercase hover:bg-secondary/10 transition-all">VER
+                                TODOS →</button>
+                            <button
+                                class="flex-1 angular-clip bg-primary text-on-primary font-label-md text-[0.75rem] font-bold py-4 tracking-[2px] uppercase hover:bg-primary/80 transition-all">CONTACTAR
+                                ↗</button>
+                        </div>
+                        <!-- Bottom Metrics Bar -->
+                        <div
+                            class="pt-8 border-t border-on-background/5 flex justify-between items-center text-center">
+                            <div>
+                                <span class="block font-headline-sm text-primary text-lg">[12+]</span>
+                                <span class="block font-code-sm text-[0.55rem] text-on-background/40 uppercase">Módulos</span>
+                            </div>
+                            <div class="w-px h-8 bg-on-background/10"></div>
+                            <div>
+                                <span class="block font-headline-sm text-primary text-lg">[3+]</span>
+                                <span class="block font-code-sm text-[0.55rem] text-on-background/40 uppercase">Años</span>
+                            </div>
+                            <div class="w-px h-8 bg-on-background/10"></div>
+                            <div>
+                                <span class="block font-headline-sm text-primary text-lg">[∞]</span>
+                                <span class="block font-code-sm text-[0.55rem] text-on-background/40 uppercase">Drive</span>
+                            </div>
+                            <div class="w-px h-8 bg-on-background/10"></div>
+                            <div>
+                                <span class="block font-headline-sm text-primary text-lg">[▲]</span>
+                                <span class="block font-code-sm text-[0.55rem] text-on-background/40 uppercase">Latam</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section: Estudio -->
+        <section class="py-32 bg-surface-container-low/30 relative" id="estudio">
+            <div class="max-w-container-max mx-auto px-margin-desktop">
+                <header class="mb-16 reveal">
+                    <h2 class="font-headline-lg text-headline-lg mt-2">Estudio:<br /><span
+                            class="text-secondary opacity-80 glitch-text">Nodos de Conocimiento</span></h2>
+                    <div class="w-24 h-1 bg-primary mt-6 neon-pulse-cyan"></div>
+                </header>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start mb-24">
+                    <div class="lg:col-span-8 space-y-12 reveal stagger-1">
+                        <div
+                            class="relative pl-8 border-l-2 border-primary/30 py-4 group transition-colors hover:border-primary">
+                            <div
+                                class="absolute -left-[11px] top-4 w-5 h-5 bg-primary rounded-full border-4 border-background shadow-[0_0_10px_#00dbe7]">
+                            </div>
+                            <div
+                                class="bg-surface-glass p-8 neon-border-cyan rounded-lg backdrop-blur-xl transition-all hover:bg-surface-container-high neon-pulse-cyan">
+                                <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                                    <div>
+                                        <h3 class="font-headline-sm text-headline-sm text-primary glitch-text">Ingeniería en Sistemas de Información (4to año en curso)</h3>
+                                        <p class="text-on-surface-variant font-code-sm">Universidad Cuenca del Plata</p>
+                                        <p class="text-on-surface-variant font-code-sm">Título intermedio obtenido: Analista Universitaria en Sistemas</p>
+                                    </div>
+                                    <div
+                                        class="bg-primary/10 text-primary px-3 py-1 rounded font-code-sm border border-primary/20 mt-2 md:mt-0 uppercase animate-pulse">
+                                        2023 — PRESENTE</div>
+                                </div>
+                                <p class="text-on-surface-variant leading-relaxed">
+                                    Perfil multidisciplinario con interés en UX/UI, arquitectura de software, experiencia de usuario y desarrollo de soluciones web que combinan diseño visual y lógica técnica.
+                                </p>
+                            </div>
+                        </div>
+                        <div
+                            class="relative pl-8 border-l-2 border-outline-variant/30 py-4 opacity-70 group hover:opacity-100 transition-opacity">
+                            <div
+                                class="absolute -left-[11px] top-4 w-5 h-5 bg-outline-variant rounded-full border-4 border-background transition-all group-hover:bg-secondary">
+                            </div>
+                            <div
+                                class="bg-surface-glass/40 p-8 border border-white/5 rounded-lg transition-all hover:neon-border-magenta">
+                                <h3
+                                    class="font-headline-sm text-headline-sm text-on-surface-variant group-hover:text-secondary transition-colors">
+                                    Bachiller en Ciencias Sociales y Humanidades</h3>
+                                <p class="text-outline font-code-sm">Instituto Privado San Basilio Magno
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right: Cyber Photo Frame -->
+                    <div class="lg:col-span-4 flex flex-col items-center reveal stagger-2">
+                        <div class="relative group w-full max-w-[320px]">
+                            <div
+                                class="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-secondary/20 blur-xl opacity-50 pulse-soft">
+                            </div>
+                            <div
+                                class="relative bg-surface-container-lowest p-2 rounded-xl neon-border-cyan overflow-hidden backdrop-blur-md transition-transform duration-500 group-hover:scale-105 neon-pulse-cyan">
+                                <img alt="Hannah Dalila Bojanovich Avatar"
+                                    class="w-full h-auto avatar-effect transition-all duration-700"
+                                    src="img/Profile.png" />
+                            </div>
+                            <div class="mt-8 space-y-3 font-code-sm text-[10px]">
+                            <div class="flex justify-between border-b border-primary/20 pb-2">
+                                <span class="text-on-surface-variant uppercase">PROFILE_STATUS:</span>
+                                <span class="text-primary font-bold animate-pulse">ACTIVE & DEVELOPING</span>
+                            </div>
+
+                            <div class="flex justify-between border-b border-primary/20 pb-2">
+                                <span class="text-on-surface-variant uppercase">CURRENT_FOCUS:</span>
+                                <span class="text-secondary font-bold">FULL STACK & UX/UI</span>
+                            </div>
+
+                            <div class="flex justify-between border-b border-primary/20 pb-2">
+                                <span class="text-on-surface-variant uppercase">LOCATION:</span>
+                                <span class="text-primary font-bold">MISIONES · ARGENTINA</span>
+                            </div>
+                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bio & Skills Split -->
+                <div class="grid ml-16 grid-cols-1 md:grid-cols-2 gap-20 mb-24 reveal">
+                    <div class="group">
+                        <h3
+                            class="font-headline-md text-headline-md mb-6 uppercase tracking-tight flex items-center gap-4 group-hover:text-secondary transition-colors">
+                            <span class="w-8 h-[2px] bg-secondary group-hover:w-12 transition-all"></span> Mi Enfoque
+                        </h3>
+                        <p class="font-body-md text-on-surface-variant leading-relaxed mb-10">
+                           Como futura Ingeniera en Sistemas, me apasiona la intersección entre la arquitectura de software y el diseño visual. Mi enfoque se centra en crear sistemas robustos, lógicos y altamente eficientes, pero con un fuerte compromiso hacia el impacto estético y la experiencia de usuario. Soy una persona muy creativa, orientada a transformar requerimientos técnicos complejos en soluciones visualmente atractivas, dinámicas y optimizadas, desafiando los límites convencionales del desarrollo.
+                        </p>
+                    </div>
+                    <div class="group">
+                        <h3
+                            class="font-headline-md text-headline-md mb-6 uppercase tracking-tight flex items-center gap-4 group-hover:text-primary transition-colors">
+                            <span class="w-8 h-[2px] bg-primary group-hover:w-12 transition-all"></span> Soft_Skills
+                        </h3>
+                        <ul class="grid grid-cols-2 gap-4">
+                            <li
+                                class="flex items-center gap-2 font-code-sm text-on-surface-variant hover:text-secondary transition-colors">
+                                <span class="material-symbols-outlined text-primary text-sm animate-pulse">check_circle</span>
+                                Creatividad
+                            </li>
+                            <li
+                                class="flex items-center gap-2 font-code-sm text-on-surface-variant hover:text-secondary transition-colors">
+                                <span class="material-symbols-outlined text-primary text-sm animate-pulse">check_circle</span>
+                                Pensamiento analítico
+                            </li>
+                            <li
+                                class="flex items-center gap-2 font-code-sm text-on-surface-variant hover:text-secondary transition-colors">
+                                <span class="material-symbols-outlined text-primary text-sm animate-pulse">check_circle</span>
+                                Resolución de problemas
+                            </li>
+                            <li
+                                class="flex items-center gap-2 font-code-sm text-on-surface-variant hover:text-secondary transition-colors">
+                                <span class="material-symbols-outlined text-primary text-sm animate-pulse">check_circle</span>
+                                Aprendizaje autónomo
+                            </li>
+                            <li
+                                class="flex items-center gap-2 font-code-sm text-on-surface-variant hover:text-secondary transition-colors">
+                                <span class="material-symbols-outlined text-primary text-sm animate-pulse">check_circle</span>
+                                Adaptabilidad tecnológica
+                            </li>
+                            <li
+                                class="flex items-center gap-2 font-code-sm text-on-surface-variant hover:text-secondary transition-colors">
+                                <span class="material-symbols-outlined text-primary text-sm animate-pulse">check_circle</span>
+                                Comunicación visual
+                            </li>
+                            <li
+                                class="flex items-center gap-2 font-code-sm text-on-surface-variant hover:text-secondary transition-colors">
+                                <span class="material-symbols-outlined text-primary text-sm animate-pulse">check_circle</span>
+                                Pensamiento estratégico
+                            </li>
+                            <li
+                                class="flex items-center gap-2 font-code-sm text-on-surface-variant hover:text-secondary transition-colors">
+                                <span class="material-symbols-outlined text-primary text-sm animate-pulse">check_circle</span>
+                                Organización
+                            </li>
+                            <li
+                                class="flex items-center gap-2 font-code-sm text-on-surface-variant hover:text-secondary transition-colors">
+                                <span class="material-symbols-outlined text-primary text-sm animate-pulse">check_circle</span>
+                                Atención al detalle
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Certifications -->
+                <div class="reveal mx-16">
+                    <div class="flex items-center gap-4 mb-10">
+                        <span class="material-symbols-outlined text-secondary animate-bounce">verified</span>
+                        <h2 class="font-headline-md text-headline-md text-on-surface uppercase tracking-tight">
+                            Certificaciones &amp; Protocolos</h2>
+                    </div>
+                    <div class="relative">
+                        <button class="cert-prev absolute left-0 top-1/2 -translate-y-1/2 z-20 p-2 bg-surface-glass rounded-full">‹</button>
+                        <div class="cert-carousel overflow-x-auto flex gap-6 snap-x snap-mandatory py-6">
+                            <div class="cert-card snap-start flex-none w-64 bg-surface-glass p-3 rounded-lg cursor-pointer neon-border-magenta neon-pulse-cyan" data-project="11">
+                                <img src="img/certificaciones/Phytoncienciadedatos.png" alt="Python para Ciencia de Datos" class="w-full h-40 object-cover rounded-md" />
+                                <h4 class="mt-4 font-label-md text-sm">Python para Ciencia de Datos e IA — Silicon Misiones</h4>
+                                <span class="font-code-sm text-[0.7rem] text-on-surface-variant">03/10/2024</span>
+                            </div>
+                            <div class="cert-card snap-start flex-none w-64 bg-surface-glass p-3 rounded-lg cursor-pointer neon-border-magenta neon-pulse-cyan" data-project="12">
+                                <img src="img/certificaciones/Ciberseguridad.png" alt="Ciberseguridad" class="w-full h-40 object-cover rounded-md" />
+                                <h4 class="mt-4 font-label-md text-sm">Ciberseguridad: Amenazas, Consejos y Buenas Prácticas — Charla</h4>
+                                <span class="font-code-sm text-[0.7rem] text-on-surface-variant">30/09/2024</span>
+                            </div>
+                            <div class="cert-card snap-start flex-none w-64 bg-surface-glass p-3 rounded-lg cursor-pointer neon-border-magenta neon-pulse-cyan" data-project="13">
+                                <img src="img/certificaciones/Phytoncienciadedatos.png" alt="Introducción a la Programación" class="w-full h-40 object-cover rounded-md" />
+                                <h4 class="mt-4 font-label-md text-sm">Introducción a la Programación — Silicon Misiones</h4>
+                                <span class="font-code-sm text-[0.7rem] text-on-surface-variant">21/03/2024</span>
+                            </div>
+                            <div class="cert-card snap-start flex-none w-64 bg-surface-glass p-3 rounded-lg cursor-pointer neon-border-magenta neon-pulse-cyan" data-project="14">
+                                <img src="img/certificaciones/InglesIT.png" alt="Inglés IT" class="w-full h-40 object-cover rounded-md" />
+                                <h4 class="mt-4 font-label-md text-sm">Inglés IT — Silicon Misiones</h4>
+                                <span class="font-code-sm text-[0.7rem] text-on-surface-variant">28/03/2024</span>
+                            </div>
+                            <div class="cert-card snap-start flex-none w-64 bg-surface-glass p-3 rounded-lg cursor-pointer neon-border-magenta neon-pulse-cyan" data-project="15">
+                                <img src="img/certificaciones/Ingles.jpeg" alt="Microsoft Excel" class="w-full h-40 object-cover rounded-md" />
+                                <h4 class="mt-4 font-label-md text-sm">Inglés – Nivel Intermedio — Brit School</h4>
+                                <span class="font-code-sm text-[0.7rem] text-on-surface-variant">14/12/2020</span>
+                            </div>
+                            <div class="cert-card snap-start flex-none w-64 bg-surface-glass p-3 rounded-lg cursor-pointer neon-border-magenta neon-pulse-cyan" data-project="16">
+                                <img src="img/certificaciones/CommunityManager.png" alt="Community Manager" class="w-full h-40 object-cover rounded-md" />
+                                <h4 class="mt-4 font-label-md text-sm">Community Manager — Silicon Misiones</h4>
+                                <span class="font-code-sm text-[0.7rem] text-on-surface-variant">01/04/2024</span>
+                            </div>
+                            <div class="cert-card snap-start flex-none w-64 bg-surface-glass p-3 rounded-lg cursor-pointer neon-border-magenta neon-pulse-cyan" data-project="17">
+                                <img src="img/certificaciones/Cosmetologa.png" alt="Curso de Cosmetología" class="w-full h-40 object-cover rounded-md" />
+                                <h4 class="mt-4 font-label-md text-sm">Curso de Cosmetología — Escuela Marichu Larumbe</h4>
+                                <span class="font-code-sm text-[0.7rem] text-on-surface-variant">06/04/2022</span>
+                            </div>
+                        </div>
+                        <button class="cert-next absolute right-0 top-1/2 -translate-y-1/2 z-20 p-2 bg-surface-glass rounded-full">›</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section: Experiencia -->
+        <section class="pt-14 pb-32 bg-surface-container-low/30 relative" id="experiencia">
+            <div class="max-w-container-max mx-auto px-margin-desktop">
+                <header class="mb-16 reveal">
+                    <h2 class="font-headline-lg text-headline-lg mt-2">Experiencia<br /><span
+                            class="text-secondary opacity-80 glitch-text">Aplicada y Profesional</span></h2>
+                    <div class="w-24 h-1 bg-primary mt-6 neon-pulse-cyan"></div>
+                </header>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+                    <div class="lg:col-span-12 space-y-6 reveal">
+                        <div class="relative pl-8 border-l-2 border-primary/30 py-4 group transition-colors hover:border-primary">
+                            <div class="absolute -left-[11px] top-4 w-5 h-5 bg-primary rounded-full border-4 border-background shadow-[0_0_10px_#00dbe7]"></div>
+                            <div class="bg-surface-glass p-8 neon-border-cyan rounded-lg backdrop-blur-xl transition-all hover:bg-surface-container-high neon-pulse-cyan">
+                                <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                                    <div>
+                                        <h3 class="font-headline-sm text-headline-sm text-primary glitch-text">Bloom.distribuciones</h3>
+                                        <p class="text-on-surface-variant font-code-sm">2025 - actualidad</p>
+                                    </div>
+                                </div>
+                                <p class="text-on-surface-variant leading-relaxed">Gestión digital, contenido para redes, atención al cliente y organización de pedidos.</p>
+                            </div>
+                        </div>
+                        <div class="relative pl-8 border-l-2 border-outline-variant/30 py-4 opacity-80 group hover:opacity-100 transition-opacity">
+                            <div class="absolute -left-[11px] top-4 w-5 h-5 bg-outline-variant rounded-full border-4 border-background transition-all group-hover:bg-secondary"></div>
+                            <div class="bg-surface-glass/40 p-8 border border-white/5 rounded-lg transition-all hover:neon-border-magenta">
+                                <h3 class="font-headline-sm text-headline-sm text-on-surface-variant group-hover:text-secondary transition-colors">TheQueenPorcelana</h3>
+                                <p class="text-outline font-code-sm">2021 - 2024</p>
+                                <p class="text-on-surface-variant leading-relaxed mt-3">Branding, diseño, edición, creación de contenido, ventas online e identidad visual para plataformas digitales.</p>
+                            </div>
+                        </div>
+                        <div class="relative pl-8 border-l-2 border-primary/30 py-4 group transition-colors hover:border-primary">
+                            <div class="absolute -left-[11px] top-4 w-5 h-5 bg-primary rounded-full border-4 border-background shadow-[0_0_10px_#00dbe7]"></div>
+                            <div class="bg-surface-glass p-8 neon-border-cyan rounded-lg backdrop-blur-xl transition-all hover:bg-surface-container-high neon-pulse-cyan">
+                                <h3 class="font-headline-sm text-headline-sm text-primary glitch-text">Consultorio Bojanovich–Fernández</h3>
+                                <p class="text-on-surface-variant font-code-sm">2022 - 2023</p>
+                                <p class="text-on-surface-variant leading-relaxed mt-3">Soporte administrativo digital, carga de datos, organización de fichas y trabajo como cosmetóloga.</p>
+                            </div>
+                        </div>
+                        <div class="relative pl-8 border-l-2 border-outline-variant/30 py-4 opacity-80 group hover:opacity-100 transition-opacity">
+                            <div class="absolute -left-[11px] top-4 w-5 h-5 bg-outline-variant rounded-full border-4 border-background transition-all group-hover:bg-secondary"></div>
+                            <div class="bg-surface-glass/40 p-8 border border-white/5 rounded-lg transition-all hover:neon-border-magenta">
+                                <h3 class="font-headline-sm text-headline-sm text-on-surface-variant group-hover:text-secondary transition-colors">Proyecto de Extensión IA</h3>
+                                <p class="text-outline font-code-sm">2025</p>
+                                <p class="text-on-surface-variant leading-relaxed mt-3">Capacitación tecnológica y acompañamiento con herramientas de IA para potenciar los negocios de mujeres emprendedoras.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section: Contacto -->
+        <section class="py-32 px-margin-desktop max-w-container-max mx-auto" id="contacto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+                <div class="lg:col-span-5 space-y-12 reveal">
+                    <header>
+                        <div class="text-primary font-code-sm mb-4 tracking-tighter opacity-70 animate-pulse">
+                           // CONTACT</div>
+                        <h2 class="font-display-lg text-display-lg text-on-surface leading-none glitch-text">ESTABLECER
+                            <br /><span class="text-secondary">CONEXIÓN</span>
+                        </h2>
+                    </header>
+                    <div class="space-y-6">
+                        <div
+                            class="bg-surface-glass neon-border-cyan p-6 relative group transition-all hover:bg-surface-container-low neon-pulse-cyan">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="p-3 bg-surface-container-high rounded-lg text-primary transition-transform group-hover:scale-110">
+                                    <span class="material-symbols-outlined">email</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-code-sm text-primary uppercase tracking-widest text-[10px]">
+                                        Email</h3>
+                                    <p class="font-body-md">bojanovichhannah@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-surface-glass neon-border-cyan p-6 relative group transition-all hover:bg-surface-container-low neon-pulse-cyan">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="p-3 bg-surface-container-high rounded-lg text-primary transition-transform group-hover:scale-110">
+                                    <span class="material-symbols-outlined">phone</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-code-sm text-primary uppercase tracking-widest text-[10px]">
+                                        Teléfono</h3>
+                                    <p class="font-body-md">+54 9 3764-394148</p>
+                                </div>
+                            </div>
+                        </div>
+                         <div
+                            class="bg-surface-glass neon-border-cyan p-6 relative group transition-all hover:bg-surface-container-low neon-pulse-cyan">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="p-3 bg-surface-container-high rounded-lg text-primary transition-transform group-hover:scale-110">
+                                    <span class="material-symbols-outlined">location_on</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-code-sm text-primary uppercase tracking-widest text-[10px]">
+                                        Ubicación</h3>
+                                    <p class="font-body-md">Misiones, Argentina</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 reveal stagger-2">
+                    <div
+                        class="bg-surface-glass neon-border-magenta p-10 relative overflow-hidden transition-all hover:bg-surface-container-lowest/80">
+                        <div
+                            class="absolute top-0 left-0 w-full h-8 bg-surface-container-highest/50 flex items-center px-4 justify-between border-b border-outline-variant/30">
+                            <div class="flex space-x-2">
+                                <div class="w-2 h-2 rounded-full bg-red-500/50"></div>
+                                <div class="w-2 h-2 rounded-full bg-secondary/50"></div>
+                                <div class="w-2 h-2 rounded-full bg-primary/50"></div>
+                            </div>
+                            <div class="font-code-sm text-[10px] tracking-widest opacity-40 uppercase">
+                                Secure_Terminal_v4</div>
+                        </div>
+                        <form class="mt-8 space-y-8">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+                                <div class="space-y-2 group">
+                                    <label class="font-code-sm text-primary text-[10px] uppercase tracking-tighter">Nombre</label>
+                                    <input
+                                        class="w-full bg-surface-container-lowest border-b-2 border-outline-variant focus:border-primary text-on-surface font-body-md py-4 px-0 outline-none transition-all placeholder:opacity-20 placeholder:font-code-sm"
+                                        placeholder="Tu nombre" type="text" />
+                                </div>
+                                <div class="space-y-2 group">
+                                    <label class="font-code-sm text-primary text-[10px] uppercase tracking-tighter">Email</label>
+                                    <input
+                                        class="w-full bg-surface-container-lowest border-b-2 border-outline-variant focus:border-primary text-on-surface font-body-md py-4 px-0 outline-none transition-all placeholder:opacity-20 placeholder:font-code-sm"
+                                        placeholder="Tu email" type="email" />
+                                </div>
+                            </div>
+                            <div class="space-y-2 group">
+                                <label class="font-code-sm text-primary text-[10px] uppercase tracking-tighter">Mensaje</label>
+                                <textarea
+                                    class="w-full bg-surface-container-lowest border-b-2 border-outline-variant focus:border-primary text-on-surface font-body-md py-4 px-0 outline-none transition-all resize-none placeholder:opacity-20 placeholder:font-code-sm"
+                                    placeholder="Escribí tu mensaje" rows="4"></textarea>
+                            </div>
+                            <div class="flex flex-col md:flex-row items-center justify-between gap-10">
+                                <p
+                                    class="text-[10px] font-code-sm text-on-surface-variant opacity-50 max-w-xs uppercase">
+                                    Completá tus datos y te respondo.</p>
+                                <button
+                                    class="angular-clip bg-primary text-on-primary font-bold font-label-md px-12 py-5 hover:bg-secondary hover:text-on-secondary transition-all active:scale-95 whitespace-nowrap neon-pulse-cyan relative group overflow-hidden"
+                                    type="submit">
+                                    <span
+                                        class="shimmer-btn absolute inset-0 opacity-0 group-hover:opacity-100"></span>
+                                    <span class="relative z-10">Enviar</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="bg-surface-container-lowest border-t border-outline-variant/20 py-20 px-margin-desktop relative z-10">
+        <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-gutter">
+            <div class="col-span-1 md:col-span-1">
+                <img src="img/logo.png" alt="Logo HDB" class="h-20 w-auto mb-6" />
+                <p class="font-label-md text-label-md text-on-surface-variant leading-relaxed">
+                    Portfolio actualizado con proyectos reales, experiencia aplicada y foco en UX/UI, desarrollo Full Stack y diseño digital.<br />
+                    Misiones, Argentina
+                </p>
+            </div>
+            <div>
+                <h4 class="font-label-md text-label-md tracking-wider uppercase text-on-surface mb-6">Navegación</h4>
+                <ul class="flex flex-col gap-4">
+                    <li><a class="font-label-md text-on-surface-variant hover:text-secondary transition-all flex items-center gap-2 group"
+                            href="#"><span
+                                class="w-1.5 h-px bg-on-surface-variant group-hover:bg-secondary group-hover:w-3 transition-all"></span>
+                            stack</a></li>
+                    <li><a class="font-label-md text-on-surface-variant hover:text-secondary transition-all flex items-center gap-2 group"
+                            href="#"><span
+                                class="w-1.5 h-px bg-on-surface-variant group-hover:bg-secondary group-hover:w-3 transition-all"></span>
+                            proyectos</a></li>
+                    <li><a class="font-label-md text-on-surface-variant hover:text-secondary transition-all flex items-center gap-2 group"
+                            href="#"><span
+                                class="w-1.5 h-px bg-on-surface-variant group-hover:bg-secondary group-hover:w-3 transition-all"></span>
+                            contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-label-md text-label-md tracking-wider uppercase text-on-surface mb-6">Contacto</h4>
+                <ul class="flex flex-col gap-4">
+                    <li><a class="font-label-md text-on-surface-variant hover:text-secondary transition-all flex items-center gap-2 group"
+                            href="mailto:bojanovichhannah@gmail.com"><span
+                                class="w-1.5 h-px bg-on-surface-variant group-hover:bg-secondary group-hover:w-3 transition-all"></span>
+                            email</a></li>
+                    <li><a class="font-label-md text-on-surface-variant hover:text-secondary transition-all flex items-center gap-2 group"
+                            href="https://github.com"><span
+                                class="w-1.5 h-px bg-on-surface-variant group-hover:bg-secondary group-hover:w-3 transition-all"></span>
+                            github</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-label-md text-label-md tracking-wider uppercase text-on-surface mb-6">Disponibilidad</h4>
+                <ul class="flex flex-col gap-4">
+                    <li><a class="font-label-md text-on-surface-variant hover:text-secondary transition-all flex items-center gap-2 group"
+                            href="tel:+5493764394148"><span
+                                class="w-1.5 h-px bg-on-surface-variant group-hover:bg-secondary group-hover:w-3 transition-all"></span>
+                            teléfono</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
